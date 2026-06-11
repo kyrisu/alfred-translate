@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.kyrisu.alfred-translate</string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict>
+		<key>5D0F2883-7416-42A2-9F99-4049C74056EF</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>3F13FADF-6086-4DBB-8CF9-74661A852042</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>kyrisu</string>
+	<key>description</key>
+	<string>On-device translation via Apple's Translation framework, with pluggable providers.</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Translate</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>tr</string>
+				<key>queuedelaycustom</key>
+				<integer>5</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>2</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Translating…</string>
+				<key>script</key>
+				<string>./src/translate.py "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Type text to translate (auto-detects direction)</string>
+				<key>title</key>
+				<string>Translate</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>5D0F2883-7416-42A2-9F99-4049C74056EF</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>3F13FADF-6086-4DBB-8CF9-74661A852042</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>Translate text using Apple's on-device Translation framework (macOS 26+).
+
+Keyword: tr
+
+Configure the default language pair and provider in "Configure Workflow".
+See README.md in the workflow folder for setup and adding providers.</string>
+	<key>uidata</key>
+	<dict>
+		<key>3F13FADF-6086-4DBB-8CF9-74661A852042</key>
+		<dict>
+			<key>xpos</key>
+			<real>400</real>
+			<key>ypos</key>
+			<real>60</real>
+		</dict>
+		<key>5D0F2883-7416-42A2-9F99-4049C74056EF</key>
+		<dict>
+			<key>xpos</key>
+			<real>110</real>
+			<key>ypos</key>
+			<real>60</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>apple</string>
+				<key>pairs</key>
+				<array>
+					<array>
+						<string>Apple (on-device, offline)</string>
+						<string>apple</string>
+					</array>
+					<array>
+						<string>Kagi (online, needs API key)</string>
+						<string>kagi</string>
+					</array>
+					<array>
+						<string>Auto (Kagi if available, else Apple)</string>
+						<string>auto</string>
+					</array>
+				</array>
+			</dict>
+			<key>description</key>
+			<string>Which translation backend to use.</string>
+			<key>label</key>
+			<string>Provider</string>
+			<key>type</key>
+			<string>popupbutton</string>
+			<key>variable</key>
+			<string>provider</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>en</string>
+				<key>placeholder</key>
+				<string>en</string>
+				<key>required</key>
+				<true/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>First language of your pair (e.g. en). Used for bidirectional routing.</string>
+			<key>label</key>
+			<string>Language A</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>pair_a</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>es</string>
+				<key>placeholder</key>
+				<string>es</string>
+				<key>required</key>
+				<true/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Second language of your pair (e.g. es).</string>
+			<key>label</key>
+			<string>Language B</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>pair_b</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string></string>
+				<key>placeholder</key>
+				<string>leave empty for auto</string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Pin a fixed target language and skip auto-routing. Empty = bidirectional.</string>
+			<key>label</key>
+			<string>Fixed target</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>target_lang</string>
+		</dict>
+	</array>
+	<key>variables</key>
+	<dict>
+		<key>pair_a</key>
+		<string>en</string>
+		<key>pair_b</key>
+		<string>es</string>
+		<key>provider</key>
+		<string>apple</string>
+		<key>target_lang</key>
+		<string></string>
+	</dict>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string>1.0.0</string>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>
