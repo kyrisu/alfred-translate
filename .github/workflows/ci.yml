@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # NOTE: GitHub-hosted runners do not have macOS 26 + the Apple Translation
+      # framework + downloaded language packs, so `make test` (which invokes the
+      # vendored bin/translate) is intentionally NOT run here. This job only
+      # checks that the Python compiles and the workflow plist is well-formed.
+      # The end-to-end translation path must be tested locally in Alfred.
+      - name: Compile Python
+        run: python3 -m py_compile src/translate.py src/config.py src/providers/*.py
+
+      - name: Lint info.plist
+        run: plutil -lint info.plist
