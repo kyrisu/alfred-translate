@@ -14,11 +14,12 @@ help:
 vendor:
 	@rm -rf $(SRCDIR)
 	@git clone --depth 1 $(REPO) $(SRCDIR)
-	@cd $(SRCDIR) && swift build -c release
-	@cp $(SRCDIR)/.build/release/translate bin/translate
+	@cd $(SRCDIR) && swift build -c release --arch arm64 --arch x86_64 && \
+		cp "$$(swift build -c release --arch arm64 --arch x86_64 --show-bin-path)/translate" "$(WORKDIR)/bin/translate"
 	@chmod +x bin/translate
 	@xattr -d com.apple.quarantine bin/translate 2>/dev/null || true
 	@echo "Vendored $$(file -b bin/translate)"
+	@lipo -info bin/translate
 
 test:
 	@./src/translate.py "Buenos días" && echo
