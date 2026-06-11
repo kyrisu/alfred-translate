@@ -8,7 +8,7 @@ jobs:
   checks:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       # NOTE: GitHub-hosted runners do not have macOS 26 + the Apple Translation
       # framework + downloaded language packs, so `make test` (which invokes the
