@@ -1,5 +1,8 @@
 # Alfred Translate
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Platform: macOS](https://img.shields.io/badge/platform-macOS%2026%2B-lightgrey.svg)](#requirements)
+
 An [Alfred](https://www.alfredapp.com/) workflow that translates text using
 Apple's **on-device** Translation framework (macOS 26+), with a pluggable
 provider layer so online backends like Kagi can be added later.
@@ -7,6 +10,16 @@ provider layer so online backends like Kagi can be added later.
 The `translate` binary (a build of
 [scriptingosx/translate-cli](https://github.com/scriptingosx/translate-cli)) is
 vendored into `bin/`, so the workflow runs fully offline with no install step.
+
+## Install
+
+Download `Translate.alfredworkflow` from the
+[latest release](https://github.com/kyrisu/alfred-translate/releases/latest) and
+double-click it to import into Alfred. The vendored binary runs offline, so
+there's no further install step — but see [Requirements](#requirements) for the
+macOS version and language packs the Translation framework needs.
+
+To build from source instead, see [Development](#development).
 
 ## Usage
 
