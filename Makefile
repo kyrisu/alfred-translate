@@ -26,7 +26,7 @@ test:
 
 package:
 	@rm -f $(PKG)
-	@files="info.plist bin src README.md"; [ -f icon.png ] && files="$$files icon.png"; \
+	@files="info.plist bin src README.md LICENSE THIRD_PARTY_LICENSES"; [ -f icon.png ] && files="$$files icon.png"; \
 		zip -r -q $(PKG) $$files -x '*.pyc' -x '*/__pycache__/*' -x '*.DS_Store'
 	@echo "Built $(PKG) — double-click to import into Alfred."
 

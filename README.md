@@ -78,3 +78,16 @@ src/config.py        Settings + bidirectional routing
 src/providers/       Provider interface and implementations
 Makefile             vendor / test / package
 ```
+
+## License
+
+This workflow's own code (everything under `src/`, the `Makefile`, `info.plist`,
+and this README) is released under the [MIT License](LICENSE).
+
+### Third-party attribution
+
+The vendored `bin/translate` binary is a build of
+[scriptingosx/translate-cli](https://github.com/scriptingosx/translate-cli) by
+Armin Briegel, distributed under the **Apache License, Version 2.0**. Its full
+license text is reproduced in [`THIRD_PARTY_LICENSES`](THIRD_PARTY_LICENSES),
+which travels inside the packaged `.alfredworkflow` alongside the binary.
