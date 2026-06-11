@@ -1,0 +1,55 @@
+name: Bug report
+description: Something isn't working as expected
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Please do **not** include API keys or other
+        secrets in this report.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead?
+      placeholder: I typed `tr ...` and ...
+    validations:
+      required: true
+  - type: input
+    id: input-text
+    attributes:
+      label: Input text
+      description: The exact text you typed after the keyword (if shareable).
+    validations:
+      required: false
+  - type: input
+    id: macos-version
+    attributes:
+      label: macOS version
+      placeholder: "26.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: provider
+    attributes:
+      label: Provider
+      options:
+        - apple
+        - kagi
+        - auto
+    validations:
+      required: true
+  - type: input
+    id: language-pair
+    attributes:
+      label: Language pair / fixed target
+      placeholder: "en <-> es, fixed target: (none)"
+    validations:
+      required: false
+  - type: checkboxes
+    id: language-packs
+    attributes:
+      label: Prerequisites
+      options:
+        - label: I have the relevant Translation language packs downloaded
+          required: false
